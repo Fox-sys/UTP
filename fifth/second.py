@@ -5,7 +5,10 @@ import numpy as np
 class Action(BaseAction):
     @classmethod
     def exec(cls):
-        matrix = [[1, 0, 4], [-5, 3, 3], [2, -2, 0]]
+        matrix = [[1, 0, 1], [0, 2, 3], [2, 2, 5]]
+        if np.linalg.det(np.array(matrix)) == 0:
+            print('Вектора линейно зависимы')
+            return
         basis = cls.gram_shmidt(matrix)
         print(basis)
         print("Проверка на ортогональность")
