@@ -34,3 +34,10 @@ def build_graph(f, x):
     )
     plt.grid()
     plt.show()
+
+
+def build_graph_params(x, y):
+    fig, ax = plt.subplots()
+    ax.plot(x, y)
+    plt.grid()
+    plt.show()

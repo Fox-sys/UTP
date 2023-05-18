@@ -1,4 +1,4 @@
-from fifth.second import Action
+from sixth.second import Action
 
 
 Action.exec()
