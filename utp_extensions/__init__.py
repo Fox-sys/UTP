@@ -36,8 +36,11 @@ def build_graph(f, x):
     plt.show()
 
 
-def build_graph_params(x, y):
+def build_graph_params(x, y, point_mode=False):
     fig, ax = plt.subplots()
-    ax.plot(x, y)
+    if point_mode:
+        ax.plot(x, y, '.r')
+    else:
+        ax.plot(x, y)
     plt.grid()
     plt.show()

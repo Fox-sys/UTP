@@ -5,7 +5,7 @@ from utp_extensions import build_graph_params
 
 class Action(BaseAction):
     piece_size = 10
-    repeat_count = 4
+    repeat_count = 1
 
     @classmethod
     def exec(cls):
@@ -16,13 +16,12 @@ class Action(BaseAction):
         pieces = cls.get_pieces()
         f_range = np.array([])
         pieces_amount = len(pieces)
-        x_range = np.arange(0, cls.repeat_count * cls.piece_size * pieces_amount - cls.repeat_count)
+        x_range = np.arange(0, cls.repeat_count * cls.piece_size * pieces_amount - cls.repeat_count * 2)
         for piece in pieces:
             f_range = np.append(f_range, piece())
         final_range = np.array([])
         for _ in range(cls.repeat_count):
             final_range = np.append(final_range, f_range)
-        print(final_range)
         return x_range, final_range
 
     @classmethod
@@ -31,10 +30,10 @@ class Action(BaseAction):
 
     @classmethod
     def build_piece_1(cls):
-        f_range = np.arange(1, cls.piece_size) / 16
+        f_range = np.arange(0, cls.piece_size-1)
         return f_range
 
     @classmethod
     def build_piece_2(cls):
-        f_range = np.arange(0, cls.piece_size) / 16
-        return f_range - f_range[-1]
+        f_range = np.arange(1, cls.piece_size)
+        return f_range[::-1]

@@ -1,3 +1,4 @@
-from sixth.third import Action
+from first.fourth import Action
 
-print(Action.exec())
+
+Action.exec()
