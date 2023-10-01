@@ -1,4 +1,3 @@
-from sixth.second import Action
+from sixth.third import Action
 
-
-Action.exec()
+print(Action.exec())
