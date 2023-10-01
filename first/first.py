@@ -7,6 +7,9 @@ from random import uniform
 class Action(BaseAction):
     @classmethod
     def exec(cls):
+        x_axis = cls.get_x_axis()
+        y_axis = cls.get_y_axis()
+        print([complex(x_axis[i], y_axis[i]) for i in range(len(x_axis))])
         build_graph_params(cls.get_x_axis(), cls.get_y_axis(), True)
 
     @classmethod

@@ -1,4 +1,4 @@
-from first.fourth import Action
+from second.first import Action
 
 
 Action.exec()

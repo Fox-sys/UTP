@@ -11,18 +11,19 @@ matplotlib.use('TkAgg')
 class Action(BaseAction):
     @classmethod
     def func(cls, x):
-        return sympy.sin(x * 3) ** 3
+        return sympy.cosh(x)
 
+    @classmethod
     def exec(cls):
-        start_point = -2
-        end_point = 2
+        start_point = 0
+        end_point = 4
         fig, ax = plt.subplots()
         x = np.arange(start_point, end_point, 0.01)
         ax.plot(
             x,
             [cls.func(x_) for x_ in x]
         )
-        taylor = TaylorSeries(cls.func, 5, 0)
+        taylor = TaylorSeries(cls.func, 10, 2)
         print(taylor.get_coefficients())
         ax.plot(
             x,
